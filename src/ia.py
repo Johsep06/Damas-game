@@ -2,8 +2,8 @@ from src.player import Player
 from src.board import Board
 
 class IA(Player):
-    def __init__(self, board: Board, is_player) -> None:
-        super().__init__(board, is_player=is_player)
+    def __init__(self, board: Board) -> None:
+        super().__init__(board, is_player=False)
     
     def escolher_movimento(self) -> tuple[str, list[int]]:
         melhor_movimento = None
