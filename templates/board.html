@@ -1,0 +1,25 @@
+{% for i in range(8) %} <!-- Cria as linhas -->
+    <div class="row">
+        {% for j in range(8) %} <!-- Cria as Colunas -->
+            {% if i%2 == 0 %} <!-- se linha par, começa com branco -->
+                <div class="cell color-{{ j%2 }}" id="cell-{{ i }}-{{ j }}">
+                
+                    {% if 'P' in board[i][j] %}
+                        <img src="{{ url_for('static', filename='assets/peça-1.png') }}" alt="">
+                    {% elif 'B' in board[i][j] %}
+                        <img src="{{ url_for('static', filename='assets/peça-0.png') }}" alt="">
+                    {% endif %}
+
+                </div>
+            {% else %} <!-- se linha impar, começa com branco -->
+                <div class="cell color-{{ (j+1)%2 }}" id="cell-{{ i }}-{{ j }}">
+                    {% if 'P' in board[i][j] %}
+                        <img src="{{ url_for('static', filename='assets/peça-1.png') }}" alt="">
+                    {% elif 'B' in board[i][j] %}
+                        <img src="{{ url_for('static', filename='assets/peça-0.png') }}" alt="">
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endfor %}
